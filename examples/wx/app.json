@@ -1,0 +1,7 @@
+{
+  "pages": ["pages/cart/cart", "pages/index/index", "pages/hello/hello"],
+  "window": {
+    "navigationBarTitleText": "小程序多状态管理"
+  },
+  "sitemapLocation": "sitemap.json"
+}
