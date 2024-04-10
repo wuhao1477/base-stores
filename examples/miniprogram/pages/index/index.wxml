@@ -1,0 +1,17 @@
+<!--index.wxml-->
+<navigation-bar title="Weixin" back="{{false}}" color="black" background="#FFF"></navigation-bar>
+<scroll-view class="scrollarea" scroll-y type="list">
+  <view class="container">
+    <view class="add-cart-container">
+      <view>商品ID：</view>
+      <input model:value="{{addGoodsId}}" placeholder="不填写将随机生成" />
+      <button bind:tap="addGoods">添加</button>
+    </view>
+    <view class="carts-info-container">
+      <view>购物车数量：{{$cart.cartList.length}}</view>
+    </view>
+    <button bind:tap="showDialog">使用组件添加购物车</button>
+  </view>
+</scroll-view>
+
+<addCartDialog show="{{showDialog}}" />

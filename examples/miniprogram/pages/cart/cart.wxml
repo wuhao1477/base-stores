@@ -1,0 +1,18 @@
+<scroll-view class="cart-container" scroll-y>
+  <view class="cart-list">
+    <view class="header">购物车</view>
+    <view class="cart-item" wx:for="{{$cart.cartList}}" wx:key="index">
+      <view class="goods-info">
+        <view>商品名称：{{item.goodsName}}</view>
+        <view>x{{item.count}}</view>
+      </view>
+      <view class="cart-item-handle-list">
+        <button bind:tap="delGoods" data-item="{{item}}">删除</button>
+        <button bind:tap="cutGoods" data-item="{{item}}">-</button>
+        <button bind:tap="addGoods" data-item="{{item}}">+</button>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{$cart.cartList.length == 0 }}" class="empty-cart">购物车为空</view>
+</scroll-view>

@@ -1,0 +1,13 @@
+<!--index.wxml-->
+
+<page-container show="{{show}}">
+  <scroll-view class="scrollarea" scroll-y type="list">
+    <view class="container">
+      <view class="add-cart-container">
+        <view>商品ID：</view>
+        <input model:value="{{addGoodsId}}" placeholder="不填写将随机生成" />
+        <button bind:tap="addGoods">添加</button>
+      </view>
+    </view>
+  </scroll-view>
+</page-container>
