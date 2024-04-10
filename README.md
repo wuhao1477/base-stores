@@ -31,30 +31,34 @@
 
 #### 创建store
 
-store继承于base-stores提供的Store类，其中状态定义在data对象内，并支持函数计算属性（计算属性中的this指向store.data对象）
+store继承于base-stores提供的Store类，其中状态定义在data对象内，并支持函数计算属性（计算属性中的this指向store对象）
 ``` js
-const create = require('base-stores')
+import BaseStore from './base-stores'
 
-class Store extends create.Store {
+class Store extends BaseStore {
 
-  data = {
-    title: '小程序多状态管理',
-    language: "zh_cn",
-    userName: '李狗蛋',
-    deptName: '化肥质检部门',
-    corpName: '富土康化肥厂',
-    // 函数属性 - 可直接绑定到视图上
-    description() {
-      return `我是${this.userName}，我在${this.corpName}工作`
-    },
-    a: {
-      b: {
-        // 深层嵌套也支持函数属性
-        c() {
-          return this.language + this.description
+  constructor(){
+    super({ 
+      data:{
+        title: '小程序多状态管理',
+        language: "zh_cn",
+        userName: '李狗蛋',
+        deptName: '化肥质检部门',
+        corpName: '富土康化肥厂',
+        // 函数属性 - 可直接绑定到视图上
+        description() {
+          return `我是${this.userName}，我在${this.corpName}工作`
+        },
+        a: {
+          b: {
+            // 深层嵌套也支持函数属性
+            c() {
+              return this.language + this.description
+            }
+          }
         }
       }
-    }
+    })
   }
 
   onChangeLang() {
